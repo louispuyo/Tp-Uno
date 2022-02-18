@@ -32,6 +32,21 @@ public class Player {
         return this.hands;
     }
 
+    /**
+     * @method Canlie
+     *         check si le joueur peu mentir / bluffer
+     * @return boolean
+     */
+
+    public boolean CanLie() {
+
+        if (this.hands.cards.contains(new SpeCard("black", "superJoker"))) {
+            return true;
+
+        }
+        return false;
+    }
+
 }
 
 class CreatePlayer extends Player

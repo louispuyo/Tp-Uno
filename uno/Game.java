@@ -31,6 +31,10 @@ public class Game {
 
     }
 
+    void decorateurMenu() {
+        System.out.println("Uno");
+    }
+
     /**
      * @methode addScore
      *          ajoute le score en fonction des cartes restantes a la fin
@@ -73,7 +77,10 @@ public class Game {
         Game g = new Game(2);
         for (int j = 0; j < 7; j++) {
             g.players.getpPlayer(0).hands.cards.get(j).print();
+
         }
+        g.addScore();
+        System.out.println(g.players.getpPlayer(0).getScore());
 
     }
 
