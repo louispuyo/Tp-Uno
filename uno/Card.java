@@ -24,9 +24,11 @@ class CardAttributs {
 public abstract class Card {
 
     protected String color;
+    protected int value;
 
-    Card(String color) {
+    Card(String color, int value) {
         this.color = color;
+        this.value = value;
 
     }
 
@@ -55,7 +57,7 @@ class BasicCard extends Card {
     protected String color;
 
     public BasicCard(int value, String color) {
-        super(color);
+        super(color, value);
         this.value = value;
         this.color = color;
 
@@ -105,10 +107,12 @@ class BasicCard extends Card {
 class SpeCard extends Card {
 
     protected String effect;
+    protected int score;
 
     public SpeCard(String color, String effect) {
-        super(color);
+        super(color, 0);
         this.effect = effect;
+        setValue();
 
     }
 
@@ -119,6 +123,19 @@ class SpeCard extends Card {
     public String getEffect() {
         return this.effect;
 
+    }
+
+    public int getValue() {
+        return this.value;
+
+    }
+
+    public void setValue() {
+        if (this.color == "black") {
+            this.score = 50;
+        } else {
+            this.score = 20;
+        }
     }
 
     @Override

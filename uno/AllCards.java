@@ -2,12 +2,41 @@ package uno;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Arrays;
 
 public class AllCards {
     public ArrayList<Card> cards;
+    public ArrayList<String> colors;
+    public ArrayList<String> effects;
 
     AllCards() {
+        ArrayList<String> colors = new ArrayList<>(Arrays.asList("red", "yellow", "green", "blue"));
+        ArrayList<String> effects = new ArrayList<>(Arrays.asList("take2", "switchDirection", "skipTurn"));
+        this.effects = effects;
+        this.colors = colors;
         this.cards = new ArrayList<>();
+        for (String c : colors) {
+
+            for (int i = 0; i < 10; i++) {
+
+                this.cards.add(new BasicCard(i, c));
+                this.cards.add(new BasicCard(i, c));
+            }
+            for (int i = 0; i < 9; i++) {
+                for (String e : effects) {
+
+                    this.cards.add(new SpeCard(c, e));
+
+                }
+
+            }
+            for (int j = 0; j < 4; j++) {
+                this.addCard(new SpeCard("noir", "joker"));
+                this.addCard(new SpeCard("noir", "take4"));
+            }
+
+        }
+        shuffleCards();
 
     }
 
@@ -33,7 +62,7 @@ public class AllCards {
     }
 
     public void shuffleCards() {
-        // Collections.shuffle(this.cards);
+        Collections.shuffle(this.cards);
     }
 
     public Card get() {

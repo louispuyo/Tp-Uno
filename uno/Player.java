@@ -8,6 +8,7 @@ public class Player {
 
     protected String name;
     protected int priority;
+    protected int points;
 
     protected AllCards hands;
 
@@ -15,7 +16,12 @@ public class Player {
         this.name = name;
         this.priority = 0;
         this.hands = new AllCards();
+        this.points = 0;
 
+    }
+
+    public int getScore() {
+        return this.points;
     }
 
     public int getPriority() {
